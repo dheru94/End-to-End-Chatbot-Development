@@ -1,10 +1,14 @@
 import mysql.connector
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 connection = mysql.connector.connect(
-            host="localhost",         
-            user="root",      
-            password="***",  
-            database="pandeyji_eatery"   
+            host = os.environ['HOST_NAME'],
+            user = os.environ['DB_USER'],
+            password = os.environ['DB_PASSWORD'],
+            database = os.environ['DB_NAME']
         )
 
 def insert_order_item(food_item, quantity, order_id):
